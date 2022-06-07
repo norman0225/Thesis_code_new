@@ -1,5 +1,5 @@
 from dronekit import connect, VehicleMode, LocationGlobalRelative, APIException
-import IMU
+import reading_IMU
 import pandas as pd
 import time
 
@@ -48,7 +48,7 @@ vehicle = dronekit.connect('/dev/ttyS0',wait_ready=True,baud=921600) #connect to
 
 sample = []
 while vehicle.armed:
-  sample.append((t,[Berry()]))
+  sample.append((t,[Berry_conv_acc_list()]))
 
 name = ['t','AccX','AccY']
 f = pd.DataFrame(columns=name,data=sample)
