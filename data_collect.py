@@ -24,6 +24,8 @@ def arm():
 date = input("please enter the date and time(2022_03_02_12:30):")
 
 vehicle = dronekit.connect('/dev/ttyS0',wait_ready=True,baud=921600) #connect to vehicel
+arm()
+
 
 sample = []
 while vehicle.armed:
@@ -32,6 +34,6 @@ while vehicle.armed:
 name = ['t','AccX','AccY']
 f = pd.DataFrame(columns=name,data=sample)
 info = input("please comment for this experiment:")
-f.to_csv('list_test.csv', mode='w', float_format='%f', header=False, index=0)
+f.to_csv(date, mode='w', float_format='%f', header=False, index=0)
 
 print('done')
