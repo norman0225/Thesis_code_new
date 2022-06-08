@@ -11,7 +11,7 @@ for i in range(40000):
   sample.append(reading_IMU.Berry_conv_acc_list())
 
 end1 = time.time()
-name = ['t']
+name = ['t','X','Y']
 f = pd.DataFrame(columns=name,data=sample)
 f.to_csv('list_test.csv', mode='w', float_format='%f', header=False, index=0)
 end2 = time.time()
