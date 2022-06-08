@@ -20,27 +20,6 @@ def arm():
         print(" Waiting for arming...")
         time.sleep(1)
      
-def Berry():
-  
-    ACCx = IMU.readACCx()
-    ACCy = IMU.readACCy()
-    ACCz = IMU.readACCz()
-    
-    
-    RAD_TO_DEG = 57.29578
-    M_PI = 3.14159265358979323846
-    
-    #Convert Accelerometer values to degrees
-    AccXangle =  (math.atan2(ACCy,ACCz)*RAD_TO_DEG)
-    AccYangle =  (math.atan2(ACCz,ACCx)+M_PI)*RAD_TO_DEG
-
-    #convert the values to -180 and +180
-    if AccYangle > 90:
-        AccYangle -= 270.0
-    else:
-        AccYangle += 90.0
-        
-    return [AccXangle,AccYangle]
         
 date = input("please enter the date and time(2022_03_02_12:30):")
 
@@ -48,7 +27,7 @@ vehicle = dronekit.connect('/dev/ttyS0',wait_ready=True,baud=921600) #connect to
 
 sample = []
 while vehicle.armed:
-  sample.append((t,[Berry_conv_acc_list()]))
+  sample.append(reading_IMU.Berry_conv_acc_list())
 
 name = ['t','AccX','AccY']
 f = pd.DataFrame(columns=name,data=sample)
