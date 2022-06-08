@@ -127,7 +127,7 @@ def Berry_conv_acc_list():
     else:
         AccYangle += 90.0
         
-    return [AccXangle,AccYangle]
+    return [timeAccXangle,AccYangle]
     
 detectIMU()     #Detect if BerryIMU is connected.
 if(BerryIMUversion == 99):
