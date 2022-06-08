@@ -112,9 +112,9 @@ def initIMU():
 def Berry_conv_acc_list():
     
     
-    ACCx = IMU.readACCx()
-    ACCy = IMU.readACCy()
-    ACCz = IMU.readACCz()
+    ACCx = readACCx()
+    ACCy = readACCy()
+    ACCz = readACCz()
     
     
     #Convert Accelerometer values to degrees
