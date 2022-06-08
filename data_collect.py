@@ -31,6 +31,7 @@ while vehicle.armed:
 
 name = ['t','AccX','AccY']
 f = pd.DataFrame(columns=name,data=sample)
+info = input("please comment for this experiment:")
 f.to_csv('list_test.csv', mode='w', float_format='%f', header=False, index=0)
 
 print('done')
