@@ -129,3 +129,8 @@ def Berry_conv_acc_list():
         
     return [AccXangle,AccYangle]
     
+detectIMU()     #Detect if BerryIMU is connected.
+if(BerryIMUversion == 99):
+    print(" No BerryIMU found... exiting ")
+    sys.exit()
+initIMU()       #Initialise the accelerometer, gyroscope and compass
