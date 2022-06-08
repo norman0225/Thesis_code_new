@@ -25,12 +25,15 @@ date = input("please enter the date and time(2022_03_02_12:30):")
 
 vehicle = dronekit.connect('/dev/ttyS0',wait_ready=True,baud=921600) #connect to vehicel
 
+arm()#arm the vehicle
+
 sample = []
 while vehicle.armed:
   sample.append(reading_IMU.Berry_conv_acc_list())
 
 name = ['t','AccX','AccY']
 f = pd.DataFrame(columns=name,data=sample)
-f.to_csv('list_test.csv', mode='w', float_format='%f', header=False, index=0)
+info = input("please comment for this experiment:")
+f.to_csv('/home/pi/Thesis_data', mode='w', float_format='%f', header=False, index=0)
 
 print('done')
