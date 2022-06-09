@@ -13,7 +13,7 @@ for i in range(40000):
 end1 = time.time()
 name = ['t','X','Y','Z']
 f = pd.DataFrame(columns=name,data=sample)
-f.to_csv('list_test.csv', mode='w', float_format='%f', header=False, index=0)
+f.to_csv('list_test.csv', mode='w', float_format='%.12f', header=False, index=0)
 end2 = time.time()
 
 print('done')
