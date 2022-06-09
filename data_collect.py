@@ -1,3 +1,4 @@
+import dronekit
 from dronekit import connect, VehicleMode, LocationGlobalRelative, APIException
 import reading_IMU
 import pandas as pd
