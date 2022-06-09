@@ -34,6 +34,6 @@ while vehicle.armed:
 name = ['t','AccX','AccY','AccZ']
 f = pd.DataFrame(columns=name,data=sample)
 info = input("please comment for this experiment:")
-f.to_csv(date, mode='w', float_format='%f', header=False, index=0)
+f.to_csv(date, mode='w', float_format='%.12f', header=False, index=0)
 
 print('done')
