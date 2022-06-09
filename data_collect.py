@@ -7,9 +7,9 @@ def arm():
     
     print("Basic pre-arm checks")
     #Do not let user try to arm until autopilot is ready
-    while not vehicle.is_armable:
-        print("Waiting for vehicle initialise...")
-        time.sleep(1)
+    #while not vehicle.is_armable:
+    #    print("Waiting for vehicle initialise...")
+    #    time.sleep(1)
     
     print("Arming motors")
     #Copter should arm in GUIDED mode
@@ -31,7 +31,7 @@ sample = []
 while vehicle.armed:
   sample.append(reading_IMU.Berry_conv_acc_list())
 
-name = ['t','AccX','AccY']
+name = ['t','AccX','AccY','AccZ']
 f = pd.DataFrame(columns=name,data=sample)
 info = input("please comment for this experiment:")
 f.to_csv(date, mode='w', float_format='%f', header=False, index=0)
