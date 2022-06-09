@@ -112,22 +112,26 @@ def initIMU():
 def Berry_conv_acc_list():
     
     
-    ACCx = readACCx()
-    ACCy = readACCy()
-    ACCz = readACCz()
+    #ACCx = readACCx()
+    #ACCy = readACCy()
+    #ACCz = readACCz()
     
-    
+    #convert Accelerometer values to m/s/s
+    ACCx_mss = (readACCx()*0.244)*0.001*9.8
+    ACCy_mss = (readACCy()*0.244)*0.001*9.8
+    ACCz_mss = (readACCz()*0.244)*0.001*9.8
+
     #Convert Accelerometer values to degrees
-    AccXangle =  (math.atan2(ACCy,ACCz)*RAD_TO_DEG)
-    AccYangle =  (math.atan2(ACCz,ACCx)+M_PI)*RAD_TO_DEG
+    #AccXangle =  (math.atan2(ACCy,ACCz)*RAD_TO_DEG)
+    #AccYangle =  (math.atan2(ACCz,ACCx)+M_PI)*RAD_TO_DEG
 
     #convert the values to -180 and +180
-    if AccYangle > 90:
-        AccYangle -= 270.0
-    else:
-        AccYangle += 90.0
+    #if AccYangle > 90:
+    #    AccYangle -= 270.0
+    #else:
+    #    AccYangle += 90.0
         
-    return [timeAccXangle,AccYangle]
+    return [time.time(),ACCx_mss,ACCy_mss,ACCz_mss]
     
 detectIMU()     #Detect if BerryIMU is connected.
 if(BerryIMUversion == 99):
