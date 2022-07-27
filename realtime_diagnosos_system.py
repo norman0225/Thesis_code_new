@@ -1,4 +1,4 @@
-import dronekit, math, pickle
+import dronekit, math, pickle, time
 from dronekit import connect, VehicleMode, LocationGlobalRelative, APIException
 import reading_IMU
 import numpy as np
@@ -32,12 +32,12 @@ modelname = 'svm_model_7.sav'
 load_model = pickle.load(open('svm_model_7.sav', 'rb'))
 
 #load mean and std of train data
-data_mean_std = pd.read_csv("F:/OneDrive - 國立成功大學/Thesis/Code/Python/data_mean_std.csv")
+data_mean_std = pd.read_csv("data_mean_std.csv")
 
 ## connect with vehicel
 vehicle = dronekit.connect('/dev/ttyS0',wait_ready=True,baud=921600) #connect to vehicel
     
-
+f = 0
 while vehicle.armed:
     m = 0
     sample = []
