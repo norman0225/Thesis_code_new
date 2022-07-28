@@ -97,7 +97,7 @@ while vehicle.armed:
     imu_after_feature = imu_after_feature.assign(rmsx = rms_x, stdx = std_x, stdy = std_y, stdz = std_z, varx = var_x, varz  = var_z, kurx = kur_x, kury = kur_y, kurz = kur_z, fftx = fft_x, ffty = fft_y, fftz = fft_z)
     
     ## use model to predict
-    predict_test_data = load_model.predict(imu_after_feature)
+    predict_test_data = load_model.predict(imu_after_feature.values)
 
     if predict_test_data ==  1:
         f = f + 1
