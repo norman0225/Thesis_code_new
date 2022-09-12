@@ -106,6 +106,6 @@ while vehicle.armed:
         f = 0
         print("診斷為健康，次數歸零")
 
-    if f == 5:
+    if f == 6:
         print("判斷無人機具有潛在損傷執行自動降落")
         after_diagnosis()
