@@ -1,4 +1,5 @@
 #this python scripe is for testing drone armable or not
+#*******REMOVE THE PROP BEFORE RUN THE CODE
 import dronekit
 from dronekit import connect, VehicleMode, LocationGlobalRelative, APIException
 import time
